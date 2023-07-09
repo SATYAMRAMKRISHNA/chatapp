@@ -8,6 +8,7 @@ const userRoute = require('./routes/userRoute');
 const User = require('./models/userModels');
 const Chat = require('./models/chatModel');
 const { dirname } = require('path');
+const PORT = process.env.PORT || 3000 ;
 
 app.use('/',userRoute);
 const io = require('socket.io')(http);
@@ -67,6 +68,6 @@ usp.on('connection',async function(socket){
 
 
 });
-http.listen(3000,()=>{
-    console.log('server is running');
+http.listen(PORT,()=>{
+    console.log(`server is running on ${PORT}`);
 });
